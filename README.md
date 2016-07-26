@@ -1,2 +1,2 @@
-# C
-Collection of experimental C implementations.
+# Experimental
+Collection of experimental implementations.
