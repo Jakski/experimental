@@ -1,0 +1,12 @@
+[package]
+name = "tell-me-more-rust"
+version = "0.1.0"
+authors = ["Jakub Pieńkowski <jakub@nomail>"]
+
+[dependencies]
+clap = "2.24.1"
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
