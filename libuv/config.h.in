@@ -1,0 +1,4 @@
+#define VERSION "@version@"
+#define CONNECTION_BACKLOG @connection_backlog@
+#define PORT @port@
+#define ADDRESS "@address@"
