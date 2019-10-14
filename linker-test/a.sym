@@ -1,0 +1,6 @@
+LIBA_0.1.0 {
+	global:
+		say_hi;
+	local:
+		*;
+};

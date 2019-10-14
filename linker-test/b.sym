@@ -1,0 +1,6 @@
+LIBB_1.2.0 {
+	global:
+		say_hi;
+	local:
+		*;
+};
