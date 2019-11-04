@@ -30,6 +30,11 @@ chunked_pool_slist_step_100 = executable(
     sources: ['chunked_pool_slist_step_100.c'],
 )
 
+chunked_pool_slist_step_1000 = executable(
+    'chunked_pool_slist_step_1000',
+    sources: ['chunked_pool_slist_step_1000.c'],
+)
+
 run_target(
     'metrics',
     command: [
@@ -45,5 +50,6 @@ run_target(
         chunked_pool_slist_step_5,
         chunked_pool_slist_step_10,
         chunked_pool_slist_step_100,
+        chunked_pool_slist_step_1000,
     ],
 )

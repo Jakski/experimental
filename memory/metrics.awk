@@ -3,8 +3,8 @@
 ################################################################################
 
 BEGIN {
-  REPEAT = 1000;
-  PERCENTILE_SIZE_95 = int(REPEAT * 0.9);
+  REPEAT = 4000;
+  PERCENTILE_SIZE_95 = int(REPEAT * 0.95);
   PERCENTILE_SIZE_85 = int(REPEAT * 0.85);
   PERCENTILE_SIZE_70 = int(REPEAT * 0.70);
   WORKDIR = ENVIRON["MESON_BUILD_ROOT"];
@@ -17,9 +17,10 @@ BEGIN {
     system(STARTCMD " \"" WORKDIR "/chunked_pool_slist_step_5\" >> \"" WORKDIR "/metrics.txt\"");
     system(STARTCMD " \"" WORKDIR "/chunked_pool_slist_step_10\" >> \"" WORKDIR "/metrics.txt\"");
     system(STARTCMD " \"" WORKDIR "/chunked_pool_slist_step_100\" >> \"" WORKDIR "/metrics.txt\"");
+    system(STARTCMD " \"" WORKDIR "/chunked_pool_slist_step_1000\" >> \"" WORKDIR "/metrics.txt\"");
   }
-  system("sort -n \"${MESON_BUILD_ROOT}/metrics.txt\" > \"${MESON_BUILD_ROOT}/metrics_sorted.txt\"");
-  system("mv \"${MESON_BUILD_ROOT}/metrics_sorted.txt\" \"${MESON_BUILD_ROOT}/metrics.txt\"");
+  system("sort -n \"" WORKDIR "/metrics.txt\" > \"" WORKDIR "/metrics_sorted.txt\"");
+  system("mv \"" WORKDIR "/metrics_sorted.txt\" \"" WORKDIR "/metrics.txt\"");
 }
 
 {
