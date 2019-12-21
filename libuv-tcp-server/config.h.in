@@ -1,0 +1,4 @@
+#define TCP_SERVER_VERSION "@version@"
+#define TCP_SERVER_CONNECTION_BACKLOG @connection_backlog@
+#define TCP_SERVER_PORT @port@
+#define TCP_SERVER_ADDRESS "@address@"
