@@ -21,6 +21,7 @@ class ExamplecprojectConan(ConanFile):
             defs["b_sanitize"] = "address"
         meson.configure(defs=defs, source_folder="src")
         meson.build()
+        self.run("ninja test", run_environment=True)
 
     def configure(self):
         del self.settings.compiler.libcxx

@@ -16,20 +16,23 @@ executable(
     'example-c-project',
     sources: [
         'main.c',
+        'json.c',
     ],
     dependencies: [
         libjansson,
     ],
 )
 
-#test(
-    #'connection buffer',
-    #executable(
-        #'test_connection_buffer',
-        #sources      : [
-            #'connection.c',
-            #'tests/test_connection_buffer.c',
-        #],
-        #link_args    : debug_link_flags,
-    #),
-#)
+test(
+    'JSON parser',
+    executable(
+        'test_json_parser',
+        sources      : [
+            'json.c',
+            'tests/json.c',
+        ],
+        dependencies: [
+            libjansson,
+        ],
+    ),
+)
