@@ -1,0 +1,5 @@
+root = true
+
+[*.{dot,c,h,sym}]
+indent_style = tab
+indent_size = 2
