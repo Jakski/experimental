@@ -11,6 +11,7 @@
 #define _unused_ __attribute__((unused))
 #define _cleanup_(x) __attribute__((__cleanup__(x)))
 #define xmalloc(size) verbose_xmalloc(size, __FILE__, __LINE__)
+#define xrealloc(size) verbose_xrealloc(ptr, size, __FILE__, __LINE__)
 #define LOG_DEBUG(...) \
 	do { \
 		fprintf(stdout, "DEBUG:%s:%d: ", __FILE__, __LINE__); \
@@ -40,10 +41,18 @@ _unused_ static void on_uv_debug_walk(uv_handle_t *handle, void *arg) {
 	);
 }
 
-_unused_ static void *verbose_xmalloc(size_t size, const char *src, int line) {
+_unused_ static inline void *verbose_xmalloc(size_t size, const char *src, int line) {
 	void *r = malloc(size);
 	if (r == NULL) {
 		LOG_ERROR("%s:%d: Failed to allocate memory\n", src, line);
+	}
+	return r;
+}
+
+_unused_ static void *verbose_xrealloc(void *ptr, size_t size, const char *src, int line) {
+	void *r = realloc(ptr, size);
+	if (r == NULL && size != 0) {
+		LOG_ERROR("%s:%d Failed to reallocate memory", src, line);
 	}
 	return r;
 }
